@@ -1,0 +1,141 @@
+.myForm{
+    max-width:600px ;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.myfont{
+    font-family: "Segoe UI";
+}
+
+a:visited{
+    color:#a4a400
+}
+
+.myBtn{
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.signupForm{
+    max-width: 300px;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+dd
+{
+    max-width:600px ;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    background: #ffffa8;
+}
+
+.myborder{
+    
+    border-radius: 30px;
+    background-color:#F0F0F0 ;
+    color: #a4a400; 
+    border: 3px solid #73ad21;
+    text-align: center;
+    
+}
+
+
+
+.myflex{
+    column-count: 3;
+}
+
+@media all and (max-width:768px){
+    .mytext{
+        text-align: start;
+    }
+
+
+    .mydiv{
+        column-count: 1;
+    }
+    
+    
+    .borderL{
+        border-left: 2px none #a4a400;
+    
+    }
+ 
+
+
+}
+
+
+@media all and (min-width:768px){
+    .borderLine1{
+        border-right: 2px solid #a4a400;
+    
+    }
+    .borderLine3{
+        border-right: 2px solid #a4a400;
+    
+    }
+   
+  
+    .mydiv{
+        column-count: 2;
+        column-rule: 2px solid #73ad21;
+    }
+    .mytext{
+        text-align: center;
+    }
+
+    .borderL{
+        border-left: 2px solid #a4a400;
+    
+    }
+    
+}
+
+
+
+
+@media all and (min-width:1200px){
+    .borderLine1{
+        border-right: 2px solid #a4a400;
+    }
+    .borderLine2{
+        border-right: 2px solid #a4a400;
+    }
+    .borderLine3{
+        border-right: 2px none red;
+    }
+    
+    
+    .mydiv{
+        column-count: 3;
+        column-rule: 2px solid #a4a400;
+
+    }
+}
+body  {
+    background-image: url("silverware.jpg");
+  }
+
+/* hr{
+    text-align:center;
+    margin: 0 auto;
+} */
+
+.borderLineH{
+    border-bottom: 2px solid gray;
+    max-width: 1024px;
+
+}
+
+ul{
+    list-style-image: url(fish_icon_24.png);
+}
+
+
