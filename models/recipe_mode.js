@@ -54,6 +54,4 @@ function validComment(recipe_id,comment) {
 }
 
 
-
-let all=getComments(1)
-console.log(all);
+module.exports={getAllRecipes,  getRecipeDetail, getComments,addComment}
