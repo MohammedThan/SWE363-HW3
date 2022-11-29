@@ -1,10 +1,12 @@
+{% block content %}
+
 <!DOCTYPE html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="FishRecipe.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" >
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" ></script>
-    <title>Jumbo fish fingers</title>
+    <script src="nunjucks.js"></script>
 </head>
 
 <body>
@@ -13,19 +15,19 @@
 
         <div class="row justify-content-center m-1 p-3 ">
             <div class=" col col-xl-8 col-xxl-8 myborder fs-2 fw-bold p-4">
-                Jumbo fish fingers {{db.image}}
+                {{db.title}}
             </div>
         </div>
 
         <div class="row justify-content-center ">
             <div class="myborder col-7 col-xs-9 col-sm-9 col-md-6 col-lg-6 col-xl-4 col-xxl-4  fs-6 fw-bold p-2 ">
-                GOLDEN CRISPY BREADCRUMBS
+                {{db.subtitle}}
             </div>
         </div>
 
         <div class="row justify-content-center ">
             <div class="col  mytext    ">
-                 <b> Makes</b> 10 portions <b> Cooks In</b> 25 minutes prep, plus cooking <b>Difficulty</b> Not too tricky
+                 <b> Makes</b> {{db.make}} <b> Cooks In</b> {{db.cook_time}} <b>Difficulty</b> {{db.difficulty}}
             </div>
         </div>        
     </div>
@@ -40,10 +42,10 @@
 
     <div class="container borderLineH">
     <div class="mydiv m-3">
-        <img src="{{db.image}}" class="img-fluid rounded-circle mx-auto d-block m-2 " alt="JumboFishFingers" >
+        <img src="{{db.image}}" class="img-fluid rounded-circle mx-auto d-block m-2 " alt="{{db.title}}" >
         <div id="">
             <ul class=" m-0 myfont">
-                    <li > 1 x 2 kg side of salmon, skin off, pin-boned, from sustainable sources</li>
+                    <li > {{db.item}}</li>
                     <li> 2 large free-range eggs </li>
                     <li> 2 tsp sweet smoked paprika</li>
                     <li > 250 g wholemeal bread</li>
@@ -76,7 +78,7 @@
                     <ul>
                         <li> whisk the eggs with the paprika and a pinch of sea salt and black pepper.</li>
                         <li>Tear the bread into a food processor, grate in the cheese, add 2 <span title="teaspoons">tbsp</span> of oil and whiz until you have breadcrumbs, then tip into a tray.</li>
-                        <li>Coat each fish portion in the egg mixture, let any excess drip off, then turn in the breadcrumbs until well coated all over.</li>
+                        <li>{{db.step}}</li>
                         <li>Transfer to a tray lined with greaseproof paper, layering them up between sheets of paper until they’re all coated. </li>
                         <li>Cook right away or freeze in the tray – once frozen, you can pop them into a tub or sandwich bags for easier storage.</li>
         
@@ -190,3 +192,4 @@
     </div>
 </body>
 </html>
+{% endblock  %}

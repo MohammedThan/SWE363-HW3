@@ -10,6 +10,7 @@ function getRecipeDetail(recipe_id){
     return res[0]
 }
 
+
 function getComments(recipe_id){
     const res = db.prepare('select * from comments where comments.recipe_id=?;').all(recipe_id);
     return res;
@@ -53,5 +54,5 @@ function validComment(recipe_id,comment) {
     };
 }
 
-
+console.log(getRecipeDetail(1))
 module.exports={getAllRecipes,  getRecipeDetail, getComments,addComment}
