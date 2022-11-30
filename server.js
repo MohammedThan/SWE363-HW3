@@ -20,7 +20,6 @@ app.get("/", function(req, res){
     res.render("index.njk",{"db":db})
 })
 
-app.use( express.static('public'));
 
 app.get("/recipes/:recipe_id", function(req, res){
     let db=modes.getRecipeDetail(req.params.recipe_id)
