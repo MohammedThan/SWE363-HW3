@@ -11,6 +11,8 @@ function getRecipeDetail(recipe_id){
 }
 
 
+
+
 function getComments(recipe_id){
     const res = db.prepare('select * from comments where comments.recipe_id=?;').all(recipe_id);
     return res;
@@ -18,7 +20,7 @@ function getComments(recipe_id){
 
 function addComment(recipe_id, comment){
     theComment=validComment(recipe_id,comment);
-    const insert = db.prepare('INSERT INTO  comments (id, "author", "comment", recipe_id) VALUES (@id, @author, @comment, @recipe_id)');
+    const insert = db.prepare('INSERT INTO  comments (id , "author", "comment", recipe_id) VALUES (@id, @author, @comment, @recipe_id)');
 
 
     const result = insert.run(theComment);
@@ -40,18 +42,26 @@ function validComment(recipe_id,comment) {
         error.statusCode = 400;
         throw error;
 
-    } else if(comment.id===null || comment.author===null || comment.comment===null ){
+    } else if( comment.author===null || comment.comment===null ){
         let error = new Error("some field is missing"); 
         error.statusCode = 400;
         throw error;
     }
 
     return {
-        id:comment.id,
+        id:allComment()[allComment().length-1].id+1,
         author:comment.author,
         comment:comment.comment,
         recipe_id:recipe_id
     };
 }
+
+
+function allComment(){
+    const res = db.prepare('select * from comments;').all();
+    return res;
+    
+}
+console.log(allComment())
 
 module.exports={getAllRecipes,  getRecipeDetail, getComments,addComment}

@@ -23,10 +23,28 @@ app.get("/", function(req, res){
 
 app.get("/recipes/:recipe_id", function(req, res){
     let db=modes.getRecipeDetail(req.params.recipe_id)
+    // let comments=modes.getComments(req.params.recipe_id)
     // console.log(req.params.recipe_id)
     // console.log(modes.getRecipeDetail(1))
-    res.render("recipe.njk",{"db":modes.getRecipeDetail(req.params.recipe_id)})
+    res.render("recipe.njk",{"db":db})
 })
+
+app.get("/recipes/:recipe_id/comments", function(req, res){
+    let comments=modes.getComments(req.params.recipe_id)
+
+    res.json(comments)
+})
+
+app.post("/recipes/:recipe_id/comments",function(req, res){
+    var tmpJson=JSON.stringify(req.body)
+    var myJson=JSON.parse(tmpJson)
+    console.log(req.params.recipe_id)
+
+    modes.addComment(req.params.recipe_id,myJson)
+    // let db=modes.getRecipeDetail(req.params.recipe_id)
+    // res.render("recipe.njk",{"db":db})
+
+});
 
 
 app.listen(3000)
