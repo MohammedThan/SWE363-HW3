@@ -7,6 +7,9 @@ function getAllRecipes(){
 
 function getRecipeDetail(recipe_id){
     const res = db.prepare('select * from recipes,ingredients,method where recipes.id=? AND ingredients.recipe_id=? AND method.recipe_id=? ;').all(recipe_id,recipe_id,recipe_id);
+    res[0].item=getRecipeIngredients(recipe_id)
+    res[0].step=getRecipeMethod(recipe_id)
+    
     return res[0]
 }
 
@@ -30,7 +33,6 @@ function addComment(recipe_id, comment){
       message = 'Review created successfully';
     }
     
-    console.log(message);
     return {message};
 
 
@@ -62,6 +64,16 @@ function allComment(){
     return res;
     
 }
-console.log(allComment())
+
+function getRecipeIngredients(recipe_id){
+    const res = db.prepare('select * from ingredients where ingredients.recipe_id=? ;').all(recipe_id);
+    return res
+}
+function getRecipeMethod(recipe_id){
+    const res = db.prepare('select * from method where method.recipe_id=? ;').all(recipe_id);
+    return res
+}
+
+
 
 module.exports={getAllRecipes,  getRecipeDetail, getComments,addComment}

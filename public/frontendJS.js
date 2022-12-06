@@ -39,7 +39,6 @@ function seeComments() {
 
 function sendComment(recipe_id){
 
-    console.log(`/recipes/${recipe_id}/comments`)
 
     var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
     xmlhttp.open("POST", `/recipes/${recipe_id}/comments`);
